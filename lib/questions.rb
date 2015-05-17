@@ -51,7 +51,7 @@ end
 # discard the first 3 elements of an array, 
 # e.g. [1, 2, 3, 4, 5, 6] becomes [4, 5, 6]
 def all_elements_except_first_3(array)
-  n = array.slice(3, array.length)
+  array.slice(3, array.length)
 end
 
 # add an element to the beginning of an array
@@ -72,7 +72,7 @@ end
 # round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
   midpoint = (string.length.to_f/2).ceil
-  n = string.slice(0, midpoint)
+  string.slice(0, midpoint)
 end
 
 # turn a positive integer into a negative integer. A negative integer
@@ -122,20 +122,29 @@ end
 # add up all the numbers in an array, so [1, 3, 5, 6]
 # returns 15
 def total_of_array(array)
+  array.inject(0) { |result, element| result + element }
 end
 
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
+  n = []
+  push_each = array.each do |e|
+    n.push e
+  end
+  push_each * 2
 end
 
 # convert a symbol into a string
 def turn_symbol_into_string(symbol)
+  symbol.to_s
 end
 
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 17
 def average_of_array(array)
+  sum = total_of_array(array).to_f
+  (sum / array.length).round
 end
 
 # get all the elements in an array, up until the first element
