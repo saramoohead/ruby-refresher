@@ -63,7 +63,7 @@ describe 'the Friday test :)' do
     expect(b).to eq 'app'
   end
 
-  fit 'make_numbers_negative' do
+  it 'make_numbers_negative' do
     a = make_numbers_negative 5
     b = make_numbers_negative -7
 
@@ -111,7 +111,7 @@ describe 'the Friday test :)' do
     expect(n).to eq 17
   end
 
-  it 'get_elements_until_greater_than_five' do
+  xit 'get_elements_until_greater_than_five' do
     n = get_elements_until_greater_than_five [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
     expect(n).to eq [1, 3, 5, 4, 1, 2]
   end
