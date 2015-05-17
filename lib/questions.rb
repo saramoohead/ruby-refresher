@@ -43,26 +43,36 @@ end
 # [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
 # make sure you don't have the same pairing twice, 
 def every_possible_pairing_of_students(array)
+  n = array.permutation(2).to_a
+  n = n.map {|pair| pair.sort}.sort_by {|pair| [pair.first, pair.last] }
+  n.uniq!
 end
 
 # discard the first 3 elements of an array, 
 # e.g. [1, 2, 3, 4, 5, 6] becomes [4, 5, 6]
 def all_elements_except_first_3(array)
+  n = array.slice(3, array.length)
 end
 
 # add an element to the beginning of an array
 def add_element_to_beginning_of_array(array, element)
+  array.unshift(element)
 end
 
 # sort an array of words by their last letter, e.g.
 # ['sky', 'puma', 'maker'] becomes ['puma', 'maker', 'sky']
 def array_sort_by_last_letter_of_word(array)
+  n = reverse_every_element_in_array(array)
+  n = n.sort
+  n = reverse_every_element_in_array(n)
 end
 
 # cut strings in half, and return the first half, e.g.
 # 'banana' becomes 'ban'. If the string is an odd number of letters
 # round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
+  midpoint = (string.length.to_f/2).ceil
+  n = string.slice(0, midpoint)
 end
 
 # turn a positive integer into a negative integer. A negative integer
